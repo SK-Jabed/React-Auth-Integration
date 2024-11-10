@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 const SignUp = () => {
+    const { createUser } =useContext(AuthContext);
+
     const handleSignUp = e => {
         e.preventDefault();
 
@@ -12,7 +15,18 @@ const SignUp = () => {
         const password = e.target.password.value;
         
         console.log(fullName, userName, email, password);
+
+        // Create user
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log("ERROR", error.message);
+        })
     }
+
+
     return (
       <div className="bg-base-100 w-full max-w-xl mx-auto">
         <div className="hero-content flex-col">
@@ -74,7 +88,7 @@ const SignUp = () => {
               </div>
             </form>
             <p className="ml-4 mb-4 font-medium">
-              Already have an account? Please <Link className="underline font-medium" to={"/signup"}>
+              Already have an account? Please <Link className="underline font-medium" to={"/login"}>
                 Login.
               </Link>
             </p>
