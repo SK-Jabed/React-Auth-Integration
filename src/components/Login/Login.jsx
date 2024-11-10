@@ -10,9 +10,16 @@ const Login = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
+
         console.log(email, password);
 
-
+        signInUser(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log("ERROR", error.message);
+        })
     }
 
     return (
