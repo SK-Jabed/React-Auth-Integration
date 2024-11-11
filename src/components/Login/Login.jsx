@@ -5,6 +5,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
+
     const navigate = useNavigate();
 
     const handleLogin = (event) => {
@@ -33,7 +34,6 @@ const Login = () => {
         })
         .catch(error => {
             console.log("ERROR", error.message);
-
         })
     }
 
