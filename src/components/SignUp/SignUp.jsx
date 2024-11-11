@@ -29,7 +29,6 @@ const SignUp = () => {
         })
     }
 
-
     return (
       <div className="bg-base-100 w-full max-w-xl mx-auto">
         <div className="hero-content flex-col">

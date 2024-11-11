@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../firebase.init';
 
+
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
@@ -38,7 +39,6 @@ const AuthProvider = ({ children }) => {
             unSubscribe();
         }
     }, []);
-
 
     const authInfo = {
       createUser,
